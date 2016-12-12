@@ -6,24 +6,24 @@ using namespace std;
 class BaseSheet
 {
 	private:
-		int _str = 8;
-		int _dex = 8;
-		int _con = 8;
-		int _int = 8;
-		int _wis = 8;
-		int _cha = 8;
-		int _speed = 25;
+		int _str;
+		int _dex;
+		int _con;
+		int _int;
+		int _wis;
+		int _cha;
+		int _speed ;
 		// All of these others have enums and a string
 		// The string is to print out - maybe not the best way
-		Size _size = Medium;
-		string _size_text = "Medium";
-		Alignment_0 _alignment_0 = Neutral0;
-		Alignment_1 _alignment_1 = Neutral1;
-		string _alignment_text = "Neutral/Neutral";
-		Race _race = NoRace;
-		string _race_text = "NoRace";
-		DndClass _class = NoClass;
-		string _class_text = "NoClass";
+		Size _size;
+		string _size_text;
+		Alignment_0 _alignment_0;
+		Alignment_1 _alignment_1;
+		string _alignment_text;
+		Race _race;
+		string _race_text;
+		DndClass _class;
+		string _class_text;
 	public:
 		BaseSheet();
 		void print_stats();
