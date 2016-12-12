@@ -13,6 +13,7 @@ WINDOWS INSTRUCTIONS:
   some dlls installed.
 
   Running the executable will print the following:
+
     $ character.exe
     STARTING UP
     ==========================
@@ -32,3 +33,14 @@ WINDOWS INSTRUCTIONS:
     Alignment: Neutral/Neutral
     ==========================
 
+OSX INSTURCTIONS:
+  
+    g++ main.cpp base_sheet.cpp -o character.out
+
+  This creates the character.out executable. Runnint "./character.out" gets
+  the same output as above.
+
+  NOTE: I get the following warning type when doing this:
+
+    ./base_sheet.h:26:22: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+        string _class_text = "NoClass";
