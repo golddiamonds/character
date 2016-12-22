@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-	BaseSheet bs;
-	bs.print_stats();
-	return 0;
+    BaseSheet bs;
+    bs.print_stats();
+    return 0;
 }
