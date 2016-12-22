@@ -1,6 +1,6 @@
 #include "base_sheet.h"
 
-BaseSheet::BaseSheet()
+BaseSheet::BaseSheet(DndClass myClass)
 {
     printf("STARTING UP\n");
     _level = 0;
@@ -18,8 +18,7 @@ BaseSheet::BaseSheet()
     _alignment_text = "Neutral/Neutral";
     _race = NoRace;
     _race_text = "NoRace";
-    _class = NoClass;
-    _class_text = "NoClass";
+    set_class(myClass);
 }
 
 void BaseSheet::print_stats()
@@ -44,9 +43,52 @@ void BaseSheet::print_stats()
     printf("==========================\n");
 }
 
+void BaseSheet::set_class(DndClass myClass)
+{
+    _class = myClass;
+    switch (myClass)
+    {
+	case Barbarian: _class_text = "Barbarian"; break;
+	case Bard: _class_text = "Bard"; break;
+	case Cleric: _class_text = "Cleric"; break;
+	case Druid: _class_text = "Druid"; break;
+	case Fighter: _class_text = "Fighter"; break;
+	case Monk: _class_text = "Monk"; break;
+	case Paladin: _class_text = "Paladin"; break;
+	case Ranger: _class_text = "Ranger"; break;
+	case Rogue: _class_text = "Rogue"; break;
+	case Sorcerer: _class_text = "Sorcerer"; break;
+	case Warlock: _class_text = "Warlock"; break;
+	case Wizard: _class_text = "Wizard"; break;
+        case NoClass: _class_text = "NoClass"; break;
+	default: _class_text = "NoClass"; break;
+    }
+}
+
 void BaseSheet::level_up()
 {
     _level += 1;
     printf("DING!!!\n");
-    printf("You are now level %d. Congratulations!",_level);
+    printf("You are now level %d. Congratulations!\n",_level);
+    check_for_abilities();
+}
+
+void BaseSheet::check_for_abilities()
+{
+    // When leveling up, this function will check for new abilities
+    // or skills that depend on the DND class of the character.
+    // I fully expect this method to be overloaded by each DND class
+    // that inherits from "base_sheet".
+    if ( _class == NoClass )
+    {
+        printf("You don't even have a class!");
+	printf(" You won't ever learn new abilities.\n");
+    }
+    else
+    {
+        //Default print statement here warning for devs to overload this
+	printf("You are a %s.",_class_text.c_str());
+	printf(", but the devs are lazy and haven't given you abilities yet.\n");
+	printf("Ask them for OP powers or something.\n");
+    }
 }

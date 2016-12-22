@@ -25,8 +25,10 @@ class BaseSheet
         string _race_text;
         DndClass _class;
         string _class_text;
+	void set_class(DndClass myClass);
     public:
-        BaseSheet();
+        BaseSheet(DndClass myClass);
         void print_stats();
 	void level_up();
+	void check_for_abilities();
 };
