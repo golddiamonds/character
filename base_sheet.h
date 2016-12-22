@@ -6,6 +6,7 @@ using namespace std;
 class BaseSheet
 {
     private:
+        int _level;
         int _str;
         int _dex;
         int _con;
@@ -27,4 +28,5 @@ class BaseSheet
     public:
         BaseSheet();
         void print_stats();
+	void level_up();
 };

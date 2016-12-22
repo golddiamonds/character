@@ -3,6 +3,7 @@
 BaseSheet::BaseSheet()
 {
     printf("STARTING UP\n");
+    _level = 0;
     _str = 8;
     _dex = 8;
     _con = 8;
@@ -24,6 +25,7 @@ BaseSheet::BaseSheet()
 void BaseSheet::print_stats()
 {
     printf("==========================\n");
+    printf("Level: %d\n",_level);
     printf("RACE: %s\n",_race_text.c_str());
     printf("CLASS: %s\n",_class_text.c_str());
     printf("\n");
@@ -40,4 +42,11 @@ void BaseSheet::print_stats()
     printf("Alignment: %s\n",_alignment_text.c_str());
     printf("Size: %s\n",_size_text.c_str());
     printf("==========================\n");
+}
+
+void BaseSheet::level_up()
+{
+    _level += 1;
+    printf("DING!!!\n");
+    printf("You are now level %d. Congratulations!",_level);
 }
