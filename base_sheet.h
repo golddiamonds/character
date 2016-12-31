@@ -1,11 +1,14 @@
 #include "helper.h"
-#include <string>
+#include <string> // string
+#include <stdlib.h> // srand, rand
+#include <time.h> // time - for rand seed
+#include <algorithm> // sort
 
 using namespace std;
 
 class BaseSheet
 {
-    private:
+    protected:
         int _level;
         int _str;
         int _dex;
@@ -25,10 +28,12 @@ class BaseSheet
         string _race_text;
         DndClass _class;
         string _class_text;
-	void set_class(DndClass myClass);
+        void set_class(DndClass myClass);
     public:
         BaseSheet(DndClass myClass);
         void print_stats();
-	void level_up();
-	virtual void check_for_abilities();
+        void level_up();
+        virtual void check_for_abilities();
+        void roll_stats(int[]);
+        virtual void assign_stats(int[]);
 };

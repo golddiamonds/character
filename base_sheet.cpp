@@ -48,21 +48,67 @@ void BaseSheet::set_class(DndClass myClass)
     _class = myClass;
     switch (myClass)
     {
-	case Barbarian: _class_text = "Barbarian"; break;
-	case Bard: _class_text = "Bard"; break;
-	case Cleric: _class_text = "Cleric"; break;
-	case Druid: _class_text = "Druid"; break;
-	case Fighter: _class_text = "Fighter"; break;
-	case Monk: _class_text = "Monk"; break;
-	case Paladin: _class_text = "Paladin"; break;
-	case Ranger: _class_text = "Ranger"; break;
-	case Rogue: _class_text = "Rogue"; break;
-	case Sorcerer: _class_text = "Sorcerer"; break;
-	case Warlock: _class_text = "Warlock"; break;
-	case Wizard: _class_text = "Wizard"; break;
+        case Barbarian: _class_text = "Barbarian"; break;
+        case Bard: _class_text = "Bard"; break;
+        case Cleric: _class_text = "Cleric"; break;
+        case Druid: _class_text = "Druid"; break;
+        case Fighter: _class_text = "Fighter"; break;
+        case Monk: _class_text = "Monk"; break;
+        case Paladin: _class_text = "Paladin"; break;
+        case Ranger: _class_text = "Ranger"; break;
+        case Rogue: _class_text = "Rogue"; break;
+        case Sorcerer: _class_text = "Sorcerer"; break;
+        case Warlock: _class_text = "Warlock"; break;
+        case Wizard: _class_text = "Wizard"; break;
         case NoClass: _class_text = "NoClass"; break;
-	default: _class_text = "NoClass"; break;
+        default: _class_text = "NoClass"; break;
     }
+}
+
+void BaseSheet::roll_stats(int stats[])
+{
+    // This method will be used to generate and assign base stats
+    srand(time(NULL));// init random seed
+
+    //int stats[6] = {}; // now initialized outside
+    int min;
+    int roll;
+    int total = 0;
+    for (int i = 0; i<6; i++)
+    {
+        min = 10;
+        total = 0;
+        for (int j = 0; j<4; j++)
+        {
+            roll = rand() % 6 + 1; // rand between 1 and 6
+            if (roll < min)
+                min = roll;
+            total += roll;
+        }
+
+        total -= min; // remove smallest from total
+        stats[i] = total; // keep value
+    }
+
+    printf("PRINTING STATS:\n");
+    for (int i = 0; i<6; i++)
+    {
+        printf("STAT[%d] = %d\n",i,stats[i]);
+    }
+}
+
+void BaseSheet::assign_stats(int stats[])
+{
+    std::sort(stats,stats+6,std::greater<int>()); // descending sort in place
+    printf("Called assign_stats() from BaseSheet.\n");
+    printf("Assigning stats with following priority:\n");
+    printf("STR, DEX, CON, INT, WIS, CHA\n");
+    _str = stats[0];
+    _dex = stats[1];
+    _con = stats[2];
+    _int = stats[3];
+    _wis = stats[4];
+    _cha = stats[5];
 }
 
 void BaseSheet::level_up()
@@ -85,13 +131,13 @@ void BaseSheet::check_for_abilities()
     if ( _class == NoClass )
     {
         printf("You don't even have a class!");
-	printf(" You won't ever learn new abilities.\n");
+        printf(" You won't ever learn new abilities.\n");
     }
     else
     {
         //Default print statement here warning for devs to overload this
-	printf("You are a %s.",_class_text.c_str());
-	printf(", but the devs are lazy and haven't given you abilities yet.\n");
-	printf("Ask them for OP powers or something.\n");
+        printf("You are a %s.",_class_text.c_str());
+        printf(", but the devs are lazy and haven't given you abilities yet.\n");
+        printf("Ask them for OP powers or something.\n");
     }
 }

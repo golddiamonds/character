@@ -18,5 +18,9 @@ int main()
     BarbarianSheet barb_0;
     barb_0.print_stats();
     barb_0.level_up();
+    int stats[6] = {};
+    barb_0.roll_stats(stats); // assigns inside
+    barb_0.assign_stats(stats);
+    barb_0.print_stats(); // Now has new stats
     return 0;
 }
