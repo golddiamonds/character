@@ -70,6 +70,9 @@ void BaseSheet::level_up()
     _level += 1;
     printf("DING!!!\n");
     printf("You are now level %d. Congratulations!\n",_level);
+    // Now this calls BaseSheet::check_for_abilities() or calls
+    // BarbarianSheet::check_for_abilities() since I used virtual
+    // in the declaration
     check_for_abilities();
 }
 

@@ -30,5 +30,5 @@ class BaseSheet
         BaseSheet(DndClass myClass);
         void print_stats();
 	void level_up();
-	void check_for_abilities();
+	virtual void check_for_abilities();
 };

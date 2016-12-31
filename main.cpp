@@ -1,4 +1,4 @@
-#include "base_sheet.h"
+#include "barbarian_sheet.h"
 
 using namespace std;
 
@@ -13,5 +13,10 @@ int main()
     BaseSheet bs_1(Barbarian);
     bs_1.print_stats();
     bs_1.level_up();
+
+    printf("\n\nMaking a BarbarianSheet\n");
+    BarbarianSheet barb_0;
+    barb_0.print_stats();
+    barb_0.level_up();
     return 0;
 }
