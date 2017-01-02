@@ -52,3 +52,69 @@ enum Alignment_1
     Neutral1,
     Good
 };
+
+enum CastTimeType
+{
+    Action,
+    BonusAction,
+    Reaction
+};
+
+// Currently not used. Instead use _is_X where 
+// X is verbal, somatic, or material
+enum Components
+{
+    Verbal,
+    Somatic,
+    Material
+};
+
+enum TargetType
+{
+    Self,
+    Friendly,
+    Enemy,
+    Creature
+};
+
+enum SpellSchool
+{
+    Abjuration,
+    Conjuration,
+    Divination,
+    Enchantment,
+    Evocation,
+    Illusion,
+    Necromacy,
+    Transmutation
+};
+
+enum DamageType
+{
+    Piercing,
+    Bludgeoning,
+    Fire,
+    Lightning
+};
+
+enum AreaOfEffect
+{
+    Cone,
+    Cube,
+    Cylinder,
+    Line,
+    Sphere,
+    NoAoe
+};
+
+enum SavingThrow
+{
+    StrSt,
+    DexSt,
+    ConSt,
+    IntSt,
+    WisSt,
+    ChaSt,
+    NoneSt
+};
+

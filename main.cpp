@@ -1,4 +1,5 @@
 #include "barbarian_sheet.h"
+#include "ability.h"
 
 using namespace std;
 
@@ -22,5 +23,10 @@ int main()
     barb_0.roll_stats(stats); // assigns inside
     barb_0.assign_stats(stats);
     barb_0.print_stats(); // Now has new stats
+
+    printf("\n\nMaking an Ability\n");
+    Ability ability_0(0);
+    ability_0.print_ability();
+
     return 0;
 }

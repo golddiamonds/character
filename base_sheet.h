@@ -1,5 +1,10 @@
+#ifndef HELPER_H
+#define HELPER_H
 #include "helper.h"
+#endif
+
 #include <string> // string
+
 #include <stdlib.h> // srand, rand
 #include <time.h> // time - for rand seed
 #include <algorithm> // sort
