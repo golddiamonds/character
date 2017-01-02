@@ -3,6 +3,7 @@
 #include <stdlib.h> // srand, rand
 #include <time.h> // time - for rand seed
 #include <algorithm> // sort
+#include <functional> // std::greater for mac osx
 
 using namespace std;
 
